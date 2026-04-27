@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Fira Code', 'Consolas', 'Segoe UI', sans-serif; /* coder-friendly font */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0d1117; /* dark terminal background */
+  color: #c9d1d9; /* light gray text */
+}
+
+code {
+  font-family: 'Fira Code', Menlo, Monaco, Consolas, 'Courier New', monospace;
+  background-color: #161b22;
+  color: #58a6ff; /* bright blue for code */
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+/* Custom Styles */
+a {
+  text-decoration: none;
+  color: #58a6ff; /* coder blue links */
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background-color: #58a6ff;
+  color: #0d1117;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #1f6feb; /* deeper blue */
+}
+
+input, textarea, select {
+  font-family: inherit;
+  background-color: #161b22;
+  color: #c9d1d9;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.error-msg {
+  color: #f85149;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #2c0f0f;
+  border-radius: 4px;
+  border-left: 4px solid #f85149;
+  font-weight: bold;
+}
+
+.success-msg {
+  color: #3fb950;
+  margin: 10px 0;
+  padding: 10px;
+  background-color: #0f2c1f;
+  border-radius: 4px;
+  border-left: 4px solid #3fb950;
+  font-weight: bold;
+}

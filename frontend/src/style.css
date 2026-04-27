@@ -1,0 +1,543 @@
+/* ===== Base Styles ===== */
+body {
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  background-color: #0d1117;
+  color: #c9d1d9;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+  background-color: #ffffff;
+  color: #1c1c1c;
+}
+
+/* ===== Header & Navigation ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #161b22;
+  color: #58a6ff;
+}
+
+body.dark-mode header {
+  background-color: #f5f5f5;
+  color: #1c1c1c;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #58a6ff;
+}
+
+.nav-menu {
+  list-style: none;
+  flex-direction: column;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #c9d1d9;
+  font-weight: 500;
+}
+
+body.dark-mode .nav-menu li a {
+  color: #1c1c1c;
+}
+
+.nav-menu li a.active {
+  border-bottom: 2px solid #58a6ff;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  position: relative; /* allow overlay positioning */
+  background: url("https://images.unsplash.com/photo-1518770660439-4636190af475") center/cover no-repeat;
+  color: #e6edf3;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+/* overlay sits above the background but below text */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* black with 50% opacity */
+  z-index: 0; /* behind the text */
+  pointer-events: none; /* overlay won't block clicks/hover */
+}
+
+
+/* ensure text stays above overlay */
+.hero .hero-text {
+  position: relative;
+  z-index: 1;
+}
+
+body.dark-mode .hero {
+  color: #1c1c1c;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #58a6ff;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+  color: #ffffff;
+}
+
+.profile-pic {
+  width: 150px;        /* adjust size as needed */
+  height: 150px;       /* keep width and height equal */
+  border-radius: 50%;  /* makes the image circular */
+  object-fit: cover;   /* ensures the image fills the circle */
+  border: 3px solid #3e2723; /* optional: adds a border */
+}
+
+/* ===== Preview Cards ===== */
+.preview-container {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 20px;
+  gap: 20px;
+}
+.key ul{
+  list-style-type: disc;   /* keep the bullet */
+  display: inline;         /* treat the whole list inline */
+  padding-left: 20px; 
+}
+.key li{
+   display: inline;         /* make each item inline */
+  margin: 60px;
+}
+.keyh2{
+  margin-bottom: 5px;
+}
+.key li::before{
+  content: "• ";
+}
+.previewfooter{
+  background-color: #161b22;
+  padding: 20px;
+  flex: 1;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.previewfoot{
+   display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+.preview {
+  background-color: #161b22;
+  padding: 20px;
+  border-radius: 8px;
+  flex: 1;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+  border-left: 6px solid #9b0c97;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body.dark-mode .preview {
+  background-color: #f5f5f5;
+  color: #1c1c1c;
+}
+body.dark-mode .previewfooter{
+  background-color: #f5f5f5;
+  color: #1c1c1c;
+}
+
+.preview h2 {
+  color: #58a6ff;
+}
+
+.preview a {
+  text-decoration: none;
+  color: #f78166;
+  font-weight: bold;
+}
+
+.font{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== Highlights Section ===== */
+.highlights {
+  padding: 30px;
+  background-color: #21262d;
+}
+
+body.dark-mode .highlights {
+  background-color: #f0f0f0;
+}
+
+.highlights h2 {
+  color: #58a6ff;
+}
+
+.highlights ul {
+  list-style: square;
+  padding-left: 40px;
+  color: #c9d1d9;
+}
+
+body.dark-mode .highlights ul {
+  color: #1c1c1c;
+}
+
+font{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ===== Posts Grid ===== */
+.home-page {
+  padding: 30px;
+}
+.contactpage{
+  padding: 30px;
+}
+.border{
+  border: 1;
+  width: 97%;
+  margin: 20px;
+}
+.tablelength{
+  margin: 0 auto;       /* centers horizontally */
+  text-align: center;   /* centers text inside cells */
+  border-collapse: collapse;
+}
+.tablelength td,
+.tablelength th{
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+}
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+ .map{
+ margin: 20px;
+ }
+.post-card {
+  background-color: #161b22;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px rgba(0,0,0,0.4);
+  border-top: 4px solid #58a6ff;
+}
+
+body.dark-mode .post-card {
+  background-color: #f5f5f5;
+  color: #1c1c1c;
+}
+
+.post-card img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+.post-card h3 {
+  margin: 10px 0;
+  color: #f78166;
+}
+
+/* ===== Forms (Contact & Register) ===== */
+.contact-form, .register-page {
+  max-width: 500px;
+  margin: 40px auto;
+  background-color: #161b22;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .contact-form,
+body.dark-mode .register-page {
+  background-color: #f5f5f5;
+  color: #1c1c1c;
+}
+
+.contact-form h2, .register-page h2 {
+  text-align: center;
+  color: #58a6ff;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #c9d1d9;
+}
+
+body.dark-mode form label {
+  color: #1c1c1c;
+}
+
+form input, form textarea {
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background-color: #0d1117;
+  color: #c9d1d9;
+}
+
+body.dark-mode form input,
+body.dark-mode form textarea {
+  background-color: #ffffff;
+  color: #1c1c1c;
+  border: 1px solid #ccc;
+}
+
+form button, form input[type="submit"] {
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #58a6ff;
+  color: #0d1117;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+.error-msg {
+  color: #f85149;
+  text-align: center;
+}
+
+.success-msg {
+  color: #3fb950;
+  text-align: center;
+}
+
+/* ===== Login Page ===== */
+.login-page {
+  max-width: 400px;
+  margin: 60px auto;
+  background-color: #161b22;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .login-page {
+  background-color: #f5f5f5;
+  color: #1c1c1c;
+}
+
+.login-page h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #58a6ff;
+}
+
+body.dark-mode .login-page h2 {
+  color: #1c1c1c;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-form label {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #c9d1d9;
+}
+
+body.dark-mode .login-form label {
+  color: #1c1c1c;
+}
+
+.login-form input {
+  margin: 5px 0;
+  padding: 12px;
+  border: 1px solid #30363d;
+  border-radius: 6px;
+  background-color: #0d1117;
+  color: #c9d1d9;
+}
+
+body.dark-mode .login-form input {
+  background-color: #ffffff;
+  color: #1c1c1c;
+  border: 1px solid #ccc;
+}
+
+.login-form button {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #58a6ff;
+  color: #0d1117;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.login-form button:hover {
+  background-color: #1f6feb;
+}
+
+.login-footer {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.9rem;
+}
+
+.login-footer a {
+  color: #f78166;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+body.dark-mode .login-footer a {
+  color: #1c1c1c;
+}
+
+/* ===== Quiz Box (About Page) ===== */
+.box {
+  max-width: 600px;
+  margin: 30px auto;
+  background-color: #161b22;
+  padding: 30px;
+  border-radius: 8px;
+  text-align: left;
+  border-left: 6px solid #58a6ff;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+body.dark-mode .box {
+  background-color: #f5f5f5;
+  color: #1c1c1c;
+}
+
+.box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #58a6ff;
+}
+
+.choice {
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 10
+}
+.lengths{
+  margin: 20px;
+}
+/* ===== Navbar Styles ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;   /* brand left, links right */
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #161b22;
+  color: #58a6ff;
+}
+
+body.dark-mode .navbar,
+body.dark-mode .navbar a {
+  background-color: #f5f5f5;
+  color: #1c1c1c;
+}
+
+.navbar-brand a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #f6f6f6;
+  text-decoration: none;
+}
+
+
+/* ===== Dropdown Container ===== */
+.navbar-links {
+  position: relative;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-toggle {
+  background: none;
+  border: none;
+  color: #c9d1d9;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 14px;
+}
+
+body.dark-mode .dropdown-toggle {
+  color: #1c1c1c;
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #161b22;
+  min-width: 160px;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.4);
+  z-index: 1;
+}
+body.dark-mode .dropdown-menu {
+  background-color: #f5f5f5;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+  color: #c9d1d9;
+}
+
+body.dark-mode .dropdown-menu a {
+  color: #1c1c1c;
+}
+
+.dropdown-menu a:hover {
+  background-color: #58a6ff;
+  color: #0d1117;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+/* Logout button inside dropdown */
+.dropdown-menu .btn-logout {
+  width: 100%;
+  text-align: left;
+  background-color: #f85149;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 0;
+  cursor: pointer;
+}
+
+.dropdown-menu .btn-logout:hover {
+  background-color: #c93c37;
+}

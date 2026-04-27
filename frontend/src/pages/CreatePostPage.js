@@ -1,0 +1,45 @@
+// frontend/src/pages/CreatePostPage.js
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import API from '../api/axios';
+const CreatePostPage = () => {
+  const [title, setTitle] = useState('');
+  const [body, setBody]   = useState('');
+  const [image, setImage] = useState(null);
+  const [error, setError] = useState('');
+  const { user }   = useAuth();
+  const navigate   = useNavigate();
+  const handleSubmit = async (e) => {
+    e.preventDefault(); setError('');
+    const fd = new FormData();
+     fd.append('title', title);
+    fd.append('body',  body);
+    if (image) fd.append('image', image);
+    try {
+      const { data } = await API.post('/posts', fd);
+      navigate(`/posts/${data._id}`);
+    } catch (err) { setError(err.response?.data?.message || 'Failed to publish post'); }
+  };
+  return (
+    <div className='create-post-page'>
+      <h2 style={{textAlign:'center'}} className='font'>Write a New Post</h2>
+      {error && <p className='error-msg'>{error}</p>}
+      <form onSubmit={handleSubmit}>
+        <input className='font' style={{margin:20}} value={title} onChange={e => setTitle(e.target.value)}
+          placeholder='Post title' required />
+        <textarea className='font' style={{margin:20}} value={body} onChange={e => setBody(e.target.value)}
+          placeholder='Write your post here...' rows={12} required />
+        {user?.role === 'admin' && (
+          <div>
+            <label className='font' style={{margin:20}}>Upload Cover Image (Admin only):</label>
+            <input type='file' accept='image/*' onChange={e => 
+setImage(e.target.files[0])} />
+          </div>
+        )}
+        <button type='submit' className='font' style={{margin:20}}>Publish Post</button>
+      </form>
+    </div>
+  );
+};
+export default CreatePostPage;
