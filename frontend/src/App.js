@@ -14,6 +14,7 @@ import CreatePostPage  from './pages/CreatePostPage';
 import EditPostPage    from './pages/EditPostPage';
 import AdminPage       from './pages/AdminPage';
 function App() {
+    console.log("Injected REACT_API_URL:", process.env.REACT_APP_API_URL);
   return (
     <>
       <Navbar />
